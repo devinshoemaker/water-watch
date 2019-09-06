@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@capacitor/core": "1.2.0",
+    "@capacitor/ios": "^1.2.0",
     "@ionic/react": "^4.8.0-rc.0",
     "@ionic/react-router": "^4.8.0-rc.0",
     "@types/jest": "24.0.11",
