@@ -25,8 +25,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "prettier --config .prettierrc --check 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
-    "lint:write": "prettier --config .prettierrc --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
-  },
+    "lint:write": "prettier --config .prettierrc --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "e2e": "concurrently \"cypress run\" --kill-others \"BROWSER=none react-scripts start\" --success first",
+    "e2e:watch": "concurrently \"cypress open\" --kill-others \"BROWSER=none react-scripts start\" --success first"
+    },
   "eslintConfig": {
     "extends": "react-app"
   },
