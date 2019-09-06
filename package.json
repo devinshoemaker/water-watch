@@ -36,7 +36,7 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "description": "An Ionic project",
+  "description": "An app to help you keep track of your water intake",
   "devDependencies": {
     "husky": "^3.0.5",
     "lint-staged": "^9.2.5",
