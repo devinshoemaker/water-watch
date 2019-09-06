@@ -38,6 +38,7 @@
   ],
   "description": "An app to help you keep track of your water intake",
   "devDependencies": {
+    "cypress": "^3.4.1",
     "husky": "^3.0.5",
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2"
