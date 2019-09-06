@@ -1,5 +1,7 @@
 {
   "name": "Water Watch",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }
