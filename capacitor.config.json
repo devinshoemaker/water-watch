@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "com.github.devinshoemaker.waterwatch",
   "appName": "Water Watch",
   "bundledWebRuntime": false,
   "npmClient": "npm",
