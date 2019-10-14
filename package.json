@@ -14,12 +14,17 @@
     "@types/react-dom": "^16.8.5",
     "@types/react-router": "^5.0.3",
     "@types/react-router-dom": "^4.3.1",
+    "firebase": "^6.6.0",
+    "firebaseui": "^4.2.0",
     "ionicons": "^4.6.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-firebaseui": "^4.0.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.0",
+    "rxfire": "^3.8.0",
+    "rxjs": "^6.5.3",
     "typescript": "3.5.3"
   },
   "scripts": {
@@ -44,6 +49,7 @@
   "description": "An app to help you keep track of your water intake",
   "devDependencies": {
     "@capacitor/cli": "1.2.0",
+    "@testing-library/react": "^9.3.0",
     "concurrently": "^4.1.2",
     "cypress": "^3.4.1",
     "husky": "^3.0.5",

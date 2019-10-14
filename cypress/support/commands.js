@@ -23,3 +23,15 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('loginWithEmail', () => {
+  cy.visit('/login');
+  cy.get('.firebaseui-id-email').type(Cypress.config('user'));
+  cy.get('.firebaseui-id-submit').click();
+  cy.get('.firebaseui-id-password').type(Cypress.config('pass'));
+  cy.get('.firebaseui-id-submit').click();
+});
+
+Cypress.Commands.add('clearFirebaseLocalStorage', () => {
+  indexedDB.deleteDatabase('firebaseLocalStorageDb');
+});

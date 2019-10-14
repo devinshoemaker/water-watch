@@ -2,7 +2,12 @@
 
 context('Home Page', () => {
   beforeEach(() => {
-    cy.visit('/');
+    cy.clearFirebaseLocalStorage();
+    cy.loginWithEmail();
+  });
+
+  afterEach(() => {
+    cy.clearFirebaseLocalStorage();
   });
 
   it('should have title', () => {
