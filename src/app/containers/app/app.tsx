@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { IonApp } from '@ionic/react';
-import { Subscription } from 'rxjs';
-import { authState } from 'rxfire/auth';
+import React from 'react';
+import { Route, Redirect } from 'react-router';
+import { IonApp, IonRouterOutlet } from '@ionic/react';
+import { IonReactRouter } from '@ionic/react-router';
 
-import { Navigation } from '../../components';
-import { auth } from '../../../firebase';
+import { AuthProvider } from '../../../auth/contexts';
+import { Home } from '../../../home/containers';
+import { Login } from '../../../auth/containers';
+import RedirectRoute from '../redirect-route/redirect-route';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -25,32 +27,19 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import '../../../theme/variables.css';
 
-export const App: React.FunctionComponent = () => {
-  const [authenticated, setAuthenticated] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    const authenticatedLocalStorage: string | null = localStorage.getItem('authenticated');
-    if (authenticated === null && authenticatedLocalStorage !== null) {
-      setAuthenticated(JSON.parse(authenticatedLocalStorage));
-    }
-
-    let authStateSubscription: Subscription;
-    authStateSubscription = authState(auth).subscribe(user => {
-      localStorage.setItem('authenticated', JSON.stringify(user !== null));
-      user ? setAuthenticated(true) : setAuthenticated(false);
-    });
-
-    return () => {
-      if (authStateSubscription) {
-        authStateSubscription.unsubscribe();
-      }
-    };
-  }, [authenticated]);
-
+export const App: React.FC = () => {
   return (
-    <IonApp>
-      <Navigation authenticated={!!authenticated} />
-    </IonApp>
+    <AuthProvider>
+      <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <RedirectRoute path="/home" component={Home} exact={true} authorized={true} redirectPath="/login" />
+            <RedirectRoute path="/login" component={Login} exact={true} authorized={false} redirectPath="/home" />
+            <Route exact path="/" render={() => <Redirect to="/home" />} />
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
+    </AuthProvider>
   );
 };
 

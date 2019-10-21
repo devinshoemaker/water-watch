@@ -14,32 +14,14 @@ const UnauthenticatedComponent: React.FunctionComponent = () => {
 };
 
 describe('RedirectRoute', () => {
-  it('renders component when condition is false', () => {
+  it('redirects when unauthorized', () => {
     const { getByText, unmount } = render(
       <IonReactRouter>
         <RedirectRoute
           path="/"
           component={AuthenticatedComponent}
           exact={true}
-          redirectCondition={false}
-          redirectPath="/unauthenticated"
-        />
-        <Route path="/unauthenticated" component={UnauthenticatedComponent} exact={true} />
-      </IonReactRouter>
-    );
-
-    getByText('authenticated');
-    unmount();
-  });
-
-  it('redirects when condition is true', () => {
-    const { getByText, unmount } = render(
-      <IonReactRouter>
-        <RedirectRoute
-          path="/"
-          component={AuthenticatedComponent}
-          exact={true}
-          redirectCondition={true}
+          authorized={true}
           redirectPath="/unauthenticated"
         />
         <Route path="/unauthenticated" component={UnauthenticatedComponent} exact={true} />
