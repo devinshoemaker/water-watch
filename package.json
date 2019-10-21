@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@capacitor/android": "^1.2.0",
-    "@capacitor/core": "1.2.0",
-    "@capacitor/ios": "^1.2.0",
+    "@capacitor/android": "^1.2.1",
+    "@capacitor/core": "^1.2.1",
+    "@capacitor/ios": "^1.2.1",
     "@ionic/react": "^4.11.2",
     "@ionic/react-router": "^4.11.2",
     "@types/jest": "^24.0.19",
@@ -48,7 +48,7 @@
   ],
   "description": "An app to help you keep track of your water intake",
   "devDependencies": {
-    "@capacitor/cli": "1.2.0",
+    "@capacitor/cli": "^1.2.1",
     "@testing-library/react": "^9.3.0",
     "concurrently": "^4.1.2",
     "cypress": "^3.4.1",
