@@ -3,10 +3,11 @@ import { Route, Redirect } from 'react-router';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
+import RedirectRoute from '../redirect-route/redirect-route';
 import { AuthProvider } from '../../../auth/contexts';
 import { Home } from '../../../home/containers';
 import { Login } from '../../../auth/containers';
-import RedirectRoute from '../redirect-route/redirect-route';
+import { Settings } from '../../../settings/containers';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -35,6 +36,7 @@ export const App: React.FC = () => {
           <IonRouterOutlet>
             <RedirectRoute path="/home" component={Home} exact={true} authorized={true} redirectPath="/login" />
             <RedirectRoute path="/login" component={Login} exact={true} authorized={false} redirectPath="/home" />
+            <RedirectRoute path="/settings" component={Settings} exact={true} authorized={true} redirectPath="/login" />
             <Route exact path="/" render={() => <Redirect to="/home" />} />
           </IonRouterOutlet>
         </IonReactRouter>
