@@ -5,9 +5,9 @@ import { IonReactRouter } from '@ionic/react-router';
 
 import RedirectRoute from '../redirect-route/redirect-route';
 import { AuthProvider } from '../../../auth/contexts';
-import { Home } from '../../../home/containers';
-import { Login } from '../../../auth/containers';
-import { Settings } from '../../../settings/containers';
+import { Home } from '../../../home/pages';
+import { Login } from '../../../auth/pages';
+import { Settings } from '../../../settings/pages';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
