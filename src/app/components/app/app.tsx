@@ -4,7 +4,7 @@ import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
 import RedirectRoute from '../redirect-route/redirect-route';
-import { AuthProvider } from '../../../auth/contexts';
+import { AuthProvider } from '../../contexts';
 import { Home } from '../../../home/pages';
 import { Login } from '../../../auth/pages';
 import { Settings } from '../../../settings/pages';
