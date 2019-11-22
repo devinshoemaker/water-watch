@@ -14,10 +14,14 @@ export const AuthProvider: React.FC = ({ children }) => {
   }, [currentUser]);
 
   useEffect(() => {
-    auth.onAuthStateChanged(user => {
+    const unsubscribeFromAuth: firebase.Unsubscribe = auth.onAuthStateChanged(user => {
       localStorage.setItem('authenticated', JSON.stringify(user));
       setCurrentUser(user);
     });
+
+    return function cleanup() {
+      unsubscribeFromAuth();
+    };
   }, []);
 
   return <AuthContext.Provider value={currentUser}>{children}</AuthContext.Provider>;
