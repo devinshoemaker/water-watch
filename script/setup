@@ -13,7 +13,7 @@ rm -rf \
     cypress/screenshots/ \
     cypress/videos/ \
     node_modules/ \
-    www/ \
+    build/ \
 
 # iOS
 rm -rf \
