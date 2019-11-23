@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel } from '@ionic/react';
 
-import { auth } from '../../../firebase';
+import { auth } from '../../../firebase-app';
 
 export const Settings: React.FC = () => {
   return (
