@@ -1,8 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import { IonApp, IonRouterOutlet } from '@ionic/react';
+import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
+import Menu from '../menu/menu';
 import RedirectRoute from '../redirect-route/redirect-route';
 import { AuthProvider } from '../../contexts';
 import { Home } from '../../../home/pages';
@@ -33,18 +34,27 @@ export const App: React.FC = () => {
     <AuthProvider>
       <IonApp>
         <IonReactRouter>
-          <IonRouterOutlet>
-            <RedirectRoute path="/home" component={Home} exact={true} authorized={true} redirectPath="/login" />
-            <RedirectRoute path="/login" component={Login} exact={true} authorized={false} redirectPath="/home" />
-            <RedirectRoute path="/settings" component={Settings} exact={true} authorized={true} redirectPath="/login" />
-            <RedirectRoute
-              path="/"
-              component={() => <Redirect to="/home" />}
-              exact={true}
-              authorized={true}
-              redirectPath="/login"
-            />
-          </IonRouterOutlet>
+          <IonSplitPane contentId="main">
+            <Menu />
+            <IonRouterOutlet id="main">
+              <RedirectRoute path="/home" component={Home} exact={true} authorized={true} redirectPath="/login" />
+              <RedirectRoute path="/login" component={Login} exact={true} authorized={false} redirectPath="/home" />
+              <RedirectRoute
+                path="/settings"
+                component={Settings}
+                exact={true}
+                authorized={true}
+                redirectPath="/login"
+              />
+              <RedirectRoute
+                path="/"
+                component={() => <Redirect to="/home" />}
+                exact={true}
+                authorized={true}
+                redirectPath="/login"
+              />
+            </IonRouterOutlet>
+          </IonSplitPane>
         </IonReactRouter>
       </IonApp>
     </AuthProvider>

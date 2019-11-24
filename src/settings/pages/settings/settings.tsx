@@ -1,5 +1,16 @@
 import React from 'react';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel } from '@ionic/react';
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonList,
+  IonItem,
+  IonLabel,
+  IonButtons,
+  IonMenuButton
+} from '@ionic/react';
 
 import { auth } from '../../../firebase-app';
 
@@ -8,6 +19,9 @@ export const Settings: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
           <IonTitle>Settings</IonTitle>
         </IonToolbar>
       </IonHeader>
