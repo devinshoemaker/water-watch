@@ -1,9 +1,9 @@
 import React from 'react';
-import { Route } from 'react-router';
-import { IonReactRouter } from '@ionic/react-router';
-import { render } from '@testing-library/react';
+import { Route, MemoryRouter } from 'react-router-dom';
+import { render, cleanup } from '@testing-library/react';
 
 import RedirectRoute from './redirect-route';
+import { AuthContext } from '../../contexts';
 
 const AuthenticatedComponent: React.FunctionComponent = () => {
   return <span>authenticated</span>;
@@ -14,21 +14,81 @@ const UnauthenticatedComponent: React.FunctionComponent = () => {
 };
 
 describe('RedirectRoute', () => {
-  it('redirects when unauthorized', () => {
-    const { getByText, unmount } = render(
-      <IonReactRouter>
-        <RedirectRoute
-          path="/"
-          component={AuthenticatedComponent}
-          exact={true}
-          authorized={true}
-          redirectPath="/unauthenticated"
-        />
-        <Route path="/unauthenticated" component={UnauthenticatedComponent} exact={true} />
-      </IonReactRouter>
+  afterEach(cleanup);
+
+  it('routes to authorized component when authorized', () => {
+    const { getByText } = render(
+      <AuthContext.Provider value={true}>
+        <MemoryRouter initialEntries={['/authenticated']}>
+          <RedirectRoute
+            path="/authenticated"
+            component={AuthenticatedComponent}
+            exact={true}
+            authorized={true}
+            redirectPath="/unauthenticated"
+          />
+          <Route path="/unauthenticated" component={UnauthenticatedComponent} exact={true} />
+        </MemoryRouter>
+      </AuthContext.Provider>
+    );
+
+    getByText('authenticated');
+  });
+
+  it('redirects to unauthorized component when unauthorized', () => {
+    const { getByText } = render(
+      <AuthContext.Provider value={false}>
+        <MemoryRouter initialEntries={['/authenticated']}>
+          <RedirectRoute
+            path="/authenticated"
+            component={AuthenticatedComponent}
+            exact={true}
+            authorized={true}
+            redirectPath="/unauthenticated"
+          />
+          <Route path="/unauthenticated" component={UnauthenticatedComponent} exact={true} />
+        </MemoryRouter>
+      </AuthContext.Provider>
     );
 
     getByText('unauthenticated');
-    unmount();
+  });
+
+  it('routes to unauthorized component when unauthorized', () => {
+    const { getByText } = render(
+      <AuthContext.Provider value={false}>
+        <MemoryRouter initialEntries={['/unauthenticated']}>
+          <RedirectRoute
+            path="/unauthenticated"
+            component={UnauthenticatedComponent}
+            exact={true}
+            authorized={false}
+            redirectPath="/authenticated"
+          />
+          <Route path="/authenticated" component={AuthenticatedComponent} exact={true} />
+        </MemoryRouter>
+      </AuthContext.Provider>
+    );
+
+    getByText('unauthenticated');
+  });
+
+  it('redirects to authorized component when authorized', () => {
+    const { getByText } = render(
+      <AuthContext.Provider value={true}>
+        <MemoryRouter initialEntries={['/unauthenticated']}>
+          <RedirectRoute
+            path="/unauthenticated"
+            component={UnauthenticatedComponent}
+            exact={true}
+            authorized={false}
+            redirectPath="/authenticated"
+          />
+          <Route path="/authenticated" component={AuthenticatedComponent} exact={true} />
+        </MemoryRouter>
+      </AuthContext.Provider>
+    );
+
+    getByText('authenticated');
   });
 });

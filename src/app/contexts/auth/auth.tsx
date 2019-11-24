@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { auth } from '../../../firebase-app';
 
-export const AuthContext = React.createContext<firebase.User | null>(null);
+export const AuthContext = React.createContext<boolean>(false);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState<firebase.User | null>(null);
-
-  useEffect(() => {
-    const currentUserLocalStorage: string | null = localStorage.getItem('authenticated');
-    if (currentUser === null && currentUserLocalStorage !== null) {
-      setCurrentUser(JSON.parse(currentUserLocalStorage));
-    }
-  }, [currentUser]);
+  const [authenticated, setAuthenticated] = useState<boolean>(!!localStorage.getItem('authenticated'));
 
   useEffect(() => {
     const unsubscribeFromAuth: firebase.Unsubscribe = auth.onAuthStateChanged(user => {
-      localStorage.setItem('authenticated', JSON.stringify(user));
-      setCurrentUser(user);
+      localStorage.setItem('authenticated', (!!user).toString());
+      setAuthenticated(!!user);
     });
 
     return function cleanup() {
@@ -24,5 +17,5 @@ export const AuthProvider: React.FC = ({ children }) => {
     };
   }, []);
 
-  return <AuthContext.Provider value={currentUser}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={authenticated}>{children}</AuthContext.Provider>;
 };
