@@ -49,6 +49,7 @@
   "description": "An app to help you keep track of your water intake",
   "devDependencies": {
     "@capacitor/cli": "^1.3.0",
+    "@testing-library/cypress": "^5.0.2",
     "@testing-library/react": "^9.3.2",
     "concurrently": "^5.0.0",
     "cypress": "^3.6.1",

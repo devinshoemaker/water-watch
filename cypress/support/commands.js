@@ -24,6 +24,8 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
+import '@testing-library/cypress/add-commands';
+
 Cypress.Commands.add('loginWithEmail', () => {
   cy.visit('/login');
   cy.get('.firebaseui-id-email').type(Cypress.config('user'));
