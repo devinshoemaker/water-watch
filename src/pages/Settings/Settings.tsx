@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   IonPage,
   IonHeader,
@@ -9,12 +9,15 @@ import {
   IonItem,
   IonLabel,
   IonButtons,
-  IonMenuButton
+  IonMenuButton,
+  IonAlert
 } from '@ionic/react';
 
 import { auth } from '../../firebaseApp';
 
 export const Settings: React.FC = () => {
+  const [showLogOutAlert, setShowLogOutAlert] = useState<boolean>(false);
+
   return (
     <IonPage>
       <IonHeader>
@@ -27,8 +30,23 @@ export const Settings: React.FC = () => {
       </IonHeader>
       <IonContent>
         <IonList>
-          <IonItem button onClick={() => auth.signOut()}>
+          <IonItem button onClick={() => setShowLogOutAlert(true)}>
             <IonLabel>Log out</IonLabel>
+            <IonAlert
+              isOpen={showLogOutAlert}
+              onDidDismiss={() => setShowLogOutAlert(false)}
+              header={'Are you sure?'}
+              buttons={[
+                {
+                  text: 'Confirm',
+                  handler: () => auth.signOut()
+                },
+                {
+                  text: 'Cancel',
+                  role: 'cancel'
+                }
+              ]}
+            />
           </IonItem>
         </IonList>
       </IonContent>

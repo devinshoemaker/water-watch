@@ -27,6 +27,7 @@ context('Home Page', () => {
 
   it('should log out', () => {
     cy.queryByText('Log out').click();
+    cy.queryAllByText('Confirm').click();
     cy.url().should('eq', 'http://localhost:3000/login');
   });
 });

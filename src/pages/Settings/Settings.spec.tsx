@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 
 import Settings from './Settings';
 
@@ -16,7 +16,7 @@ describe('Settings', () => {
   });
 
   it('should have log out button', () => {
-    const { getByText } = render(<Settings />);
-    fireEvent.click(getByText('Log out'));
+    const { getByText, getByLabelText } = render(<Settings />);
+    getByText('Log out');
   });
 });
