@@ -12,7 +12,7 @@ import {
   IonMenuButton
 } from '@ionic/react';
 
-import { auth } from '../../../firebase-app';
+import { auth } from '../../firebaseApp';
 
 export const Settings: React.FC = () => {
   return (

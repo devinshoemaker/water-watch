@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, MemoryRouter } from 'react-router-dom';
 import { render, cleanup } from '@testing-library/react';
 
-import RedirectRoute from './redirect-route';
-import { AuthContext } from '../../contexts';
+import RedirectRoute from './RedirectRoute';
+import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
 const AuthenticatedComponent: React.FunctionComponent = () => {
   return <span>authenticated</span>;

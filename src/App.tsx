@@ -3,12 +3,12 @@ import { Redirect } from 'react-router';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
-import Menu from '../menu/menu';
-import RedirectRoute from '../redirect-route/redirect-route';
-import { AuthProvider } from '../../contexts';
-import { Home } from '../../../home/pages';
-import { Login } from '../../../auth/pages';
-import { Settings } from '../../../settings/pages';
+import Menu from './components/Menu/Menu';
+import RedirectRoute from './components/RedirectRoute/RedirectRoute';
+import AuthProvider from './providers/AuthProvider/AuthProvider';
+import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
+import Settings from './pages/Settings/Settings';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -27,7 +27,7 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 /* Theme variables */
-import '../../../theme/variables.css';
+import './theme/variables.css';
 
 export const App: React.FC = () => {
   return (

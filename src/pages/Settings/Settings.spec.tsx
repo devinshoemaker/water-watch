@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 
-import Settings from './settings';
+import Settings from './Settings';
 
 describe('Settings', () => {
   afterEach(cleanup);

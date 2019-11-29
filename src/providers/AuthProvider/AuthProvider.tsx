@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { auth } from '../../../firebase-app';
+
+import { auth } from '../../firebaseApp';
 
 export const AuthContext = React.createContext<boolean>(false);
 
-export const AuthProvider: React.FC = ({ children }) => {
+const AuthProvider: React.FC = ({ children }) => {
   const [authenticated, setAuthenticated] = useState<boolean>(!!localStorage.getItem('authenticated'));
 
   useEffect(() => {
@@ -19,3 +20,5 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   return <AuthContext.Provider value={authenticated}>{children}</AuthContext.Provider>;
 };
+
+export default AuthProvider;

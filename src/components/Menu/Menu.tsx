@@ -13,7 +13,7 @@ import {
 } from '@ionic/react';
 import { home, settings } from 'ionicons/icons';
 
-import { AuthContext } from '../../contexts';
+import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
 const appPages = [
   { title: 'Home', path: '/home', icon: home },

@@ -1,7 +1,7 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 
-export const Home: React.FunctionComponent = () => (
+export const Home: React.FC = () => (
   <IonPage>
     <IonHeader>
       <IonToolbar>
