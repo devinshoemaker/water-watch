@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
-interface RedirectRoute {
+interface RedirectRouteProps {
   path: string;
   component: any;
   exact: boolean;
@@ -11,7 +11,12 @@ interface RedirectRoute {
   redirectPath: string;
 }
 
-export const RedirectRoute: React.FC<RedirectRoute> = ({ component: Component, authorized, redirectPath, ...rest }) => {
+export const RedirectRoute: React.FC<RedirectRouteProps> = ({
+  component: Component,
+  authorized,
+  redirectPath,
+  ...rest
+}) => {
   const currentUser = useContext(AuthContext);
   return (
     <Route
