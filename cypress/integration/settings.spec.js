@@ -7,10 +7,6 @@ context('Settings Page', () => {
     cy.queryByText('Settings').click();
   });
 
-  afterEach(() => {
-    cy.clearFirebaseLocalStorage();
-  });
-
   it('should redirect to login if unauthorized', () => {
     cy.clearFirebaseLocalStorage();
     cy.visit('/settings');
