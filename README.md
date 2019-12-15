@@ -44,6 +44,8 @@ script/android
 
 ## Test
 
+Add `cypress.env.json` with `user` and `pass` variables.
+
 ```
 script/test
 ```

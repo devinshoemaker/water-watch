@@ -28,9 +28,9 @@ import '@testing-library/cypress/add-commands';
 
 Cypress.Commands.add('loginWithEmail', () => {
   cy.visit('/login');
-  cy.get('.firebaseui-id-email').type(Cypress.config('user'));
+  cy.get('.firebaseui-id-email').type(Cypress.env('user'));
   cy.get('.firebaseui-id-submit').click();
-  cy.get('.firebaseui-id-password').type(Cypress.config('pass'));
+  cy.get('.firebaseui-id-password').type(Cypress.env('pass'));
   cy.get('.firebaseui-id-submit').click();
 });
 
