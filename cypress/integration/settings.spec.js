@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-context('Home Page', () => {
+context('Settings Page', () => {
   beforeEach(() => {
     cy.clearFirebaseLocalStorage();
     cy.loginWithEmail();
