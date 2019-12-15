@@ -35,5 +35,6 @@ Cypress.Commands.add('loginWithEmail', () => {
 });
 
 Cypress.Commands.add('clearFirebaseLocalStorage', () => {
+  localStorage.removeItem('authenticated');
   indexedDB.deleteDatabase('firebaseLocalStorageDb');
 });
