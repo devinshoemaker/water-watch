@@ -24,6 +24,8 @@ script/bootstrap
 
 ### PWA
 
+Update `.env` or add `.env.local` with Firebase config.
+
 ```
 script/server
 ```
