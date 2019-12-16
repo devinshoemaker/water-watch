@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import { auth } from '../../firebaseApp';
 
 export const AuthContext = React.createContext<boolean>(false);
 
 const AuthProvider: React.FC = ({ children }) => {
-  const [authenticated, setAuthenticated] = useState<boolean>(!!localStorage.getItem('authenticated'));
+  const [authenticated, setAuthenticated] = useState<boolean>(
+    JSON.parse(localStorage.getItem('authenticated') !== null ? localStorage.getItem('authenticated')! : 'false')
+  );
 
   useEffect(() => {
     const unsubscribeFromAuth: firebase.Unsubscribe = auth.onAuthStateChanged(user => {
