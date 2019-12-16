@@ -8,12 +8,22 @@ set -e
 
 echo "==> Setting application back to initial state..."
 
-# Ionic
+# Node
+rm -rf \
+    node_modules/ \
+
+# React
+rm -rf \
+    build/ \
+
+# Jest
+rm -rf \
+    coverage/ \
+
+# Cypress
 rm -rf \
     cypress/screenshots/ \
     cypress/videos/ \
-    node_modules/ \
-    build/ \
 
 # iOS
 rm -rf \
@@ -26,5 +36,9 @@ rm -rf \
 rm -rf \
     android/app/build \
     android/capacitor-cordova-android-plugins \
+
+# Firebase
+rm -rf \
+    .firebase/ \
     
 echo "==> Setup complete."
