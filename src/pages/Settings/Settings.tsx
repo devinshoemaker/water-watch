@@ -34,16 +34,18 @@ export const Settings: React.FC = () => {
             <IonLabel>Log out</IonLabel>
             <IonAlert
               isOpen={showLogOutAlert}
-              onDidDismiss={() => setShowLogOutAlert(false)}
               header={'Are you sure?'}
               buttons={[
                 {
                   text: 'Confirm',
-                  handler: () => auth.signOut()
+                  handler: () => {
+                    auth.signOut();
+                  }
                 },
                 {
                   text: 'Cancel',
-                  role: 'cancel'
+                  role: 'cancel',
+                  handler: () => setShowLogOutAlert(false)
                 }
               ]}
             />
