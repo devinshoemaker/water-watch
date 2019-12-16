@@ -11,9 +11,16 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 ${DIR}/test
 
-echo "==> Deploying to Firebase..."
+echo "==> Building project..."
 
 npm run build
-firebase deploy
+
+if [[ ! -f ".firebaserc" ]]; then
+    firebase use --add
+fi
+
+echo "==> Deploying to Firebase..."
+
+firebase deploy 
 
 echo "==> Deployment complete."
