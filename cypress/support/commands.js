@@ -27,11 +27,20 @@
 import '@testing-library/cypress/add-commands';
 
 Cypress.Commands.add('loginWithEmail', () => {
+  cy.server();
+  cy.route({
+    method: 'POST',
+    url: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=*'
+  }).as('getAccountInfo');
+
   cy.visit('/login');
   cy.get('.firebaseui-id-email').type(Cypress.env('user'));
   cy.get('.firebaseui-id-submit').click();
   cy.get('.firebaseui-id-password').type(Cypress.env('pass'));
   cy.get('.firebaseui-id-submit').click();
+  
+  cy.wait('@getAccountInfo');
+  cy.url().should('eq', 'http://localhost:3000/home');
 });
 
 Cypress.Commands.add('clearFirebaseLocalStorage', () => {

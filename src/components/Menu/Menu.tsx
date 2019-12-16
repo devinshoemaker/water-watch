@@ -1,19 +1,17 @@
-import React, { useContext } from 'react';
 import {
-  IonMenu,
   IonContent,
-  IonList,
-  IonMenuToggle,
-  IonIcon,
-  IonLabel,
-  IonItem,
   IonHeader,
-  IonToolbar,
-  IonTitle
+  IonIcon,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonMenu,
+  IonMenuToggle,
+  IonTitle,
+  IonToolbar
 } from '@ionic/react';
 import { home, settings } from 'ionicons/icons';
-
-import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
+import React from 'react';
 
 const appPages = [
   { title: 'Home', path: '/home', icon: home },
@@ -21,9 +19,8 @@ const appPages = [
 ];
 
 export const Menu: React.FC = () => {
-  const authenticated: boolean = useContext(AuthContext);
   return (
-    <IonMenu type="overlay" contentId="main" disabled={!authenticated}>
+    <IonMenu type="overlay" contentId="main">
       <IonHeader>
         <IonToolbar>
           <IonTitle>Menu</IonTitle>

@@ -8,6 +8,7 @@ import { auth } from '../../firebaseApp';
 
 export const Login: React.FC = () => {
   const uiConfig = {
+    signInSuccessUrl: '/home',
     signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID],
     credentialHelper: firebaseui.auth.CredentialHelper.NONE
   };

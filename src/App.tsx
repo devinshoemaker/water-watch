@@ -1,14 +1,7 @@
-import React from 'react';
-import { Redirect } from 'react-router';
-import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-
-import Menu from './components/Menu/Menu';
-import RedirectRoute from './components/RedirectRoute/RedirectRoute';
-import AuthProvider from './providers/AuthProvider/AuthProvider';
-import Home from './pages/Home/Home';
-import Login from './pages/Login/Login';
-import Settings from './pages/Settings/Settings';
+import React, { useContext } from 'react';
+import AuthenticatedApp from './components/AuthenticatedApp/AuthenticatedApp';
+import UnauthenticatedApp from './components/UnauthenticatedApp/UnauthenticatedApp';
+import { AuthContext } from './providers/AuthProvider/AuthProvider';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -30,35 +23,8 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 export const App: React.FC = () => {
-  return (
-    <AuthProvider>
-      <IonApp>
-        <IonReactRouter>
-          <IonSplitPane contentId="main">
-            <Menu />
-            <IonRouterOutlet id="main">
-              <RedirectRoute path="/home" component={Home} exact={true} authorized={true} redirectPath="/login" />
-              <RedirectRoute path="/login" component={Login} exact={true} authorized={false} redirectPath="/home" />
-              <RedirectRoute
-                path="/settings"
-                component={Settings}
-                exact={true}
-                authorized={true}
-                redirectPath="/login"
-              />
-              <RedirectRoute
-                path="/"
-                component={() => <Redirect to="/home" />}
-                exact={true}
-                authorized={true}
-                redirectPath="/login"
-              />
-            </IonRouterOutlet>
-          </IonSplitPane>
-        </IonReactRouter>
-      </IonApp>
-    </AuthProvider>
-  );
+  const isAuthenticated = useContext(AuthContext);
+  return isAuthenticated ? <AuthenticatedApp /> : <UnauthenticatedApp />;
 };
 
 export default App;

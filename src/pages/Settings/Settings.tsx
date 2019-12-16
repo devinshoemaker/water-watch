@@ -1,22 +1,28 @@
-import React, { useState } from 'react';
 import {
-  IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
+  IonAlert,
+  IonButtons,
   IonContent,
-  IonList,
+  IonHeader,
   IonItem,
   IonLabel,
-  IonButtons,
+  IonList,
   IonMenuButton,
-  IonAlert
+  IonPage,
+  IonTitle,
+  IonToolbar
 } from '@ionic/react';
-
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { auth } from '../../firebaseApp';
 
 export const Settings: React.FC = () => {
   const [showLogOutAlert, setShowLogOutAlert] = useState<boolean>(false);
+  const history = useHistory();
+
+  const logOutHandler = () => {
+    auth.signOut();
+    history.push('/login');
+  };
 
   return (
     <IonPage>
@@ -38,9 +44,7 @@ export const Settings: React.FC = () => {
               buttons={[
                 {
                   text: 'Confirm',
-                  handler: () => {
-                    auth.signOut();
-                  }
+                  handler: logOutHandler
                 },
                 {
                   text: 'Cancel',
