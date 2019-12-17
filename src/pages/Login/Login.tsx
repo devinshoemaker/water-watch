@@ -1,5 +1,11 @@
 import React from 'react';
-import { IonHeader, IonTitle, IonToolbar, IonPage, IonContent } from '@ionic/react';
+import {
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonPage,
+  IonContent
+} from '@ionic/react';
 import firebase from 'firebase/app';
 import * as firebaseui from 'firebaseui';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
