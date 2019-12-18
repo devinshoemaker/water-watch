@@ -5,6 +5,7 @@ import { Redirect, Route } from 'react-router-dom';
 import Home from '../../pages/Home/Home';
 import Settings from '../../pages/Settings/Settings';
 import Menu from '../Menu/Menu';
+import AddDrink from '../../pages/AddDrink/AddDrink';
 
 export const AuthenticatedApp: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ export const AuthenticatedApp: React.FC = () => {
           <Menu />
           <IonRouterOutlet id="main">
             <Route path="/home" component={Home} exact={true} />
+            <Route path="/add-drink" component={AddDrink} exact={true} />
             <Route path="/settings" component={Settings} exact={true} />
             <Route exact path="/" component={() => <Redirect to="/home" />} />
           </IonRouterOutlet>

@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -13,6 +14,12 @@ const firebaseConfig = {
 };
 
 const firebaseApp: firebase.app.App = firebase.initializeApp(firebaseConfig);
-export const auth = firebaseApp.auth();
+
+export const auth: firebase.auth.Auth = firebaseApp.auth();
+
+export const firestore: firebase.firestore.Firestore = firebaseApp.firestore();
+if (process.env.NODE_ENV !== 'test') {
+  firestore.enablePersistence();
+}
 
 export default firebaseApp;
