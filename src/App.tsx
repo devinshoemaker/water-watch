@@ -1,3 +1,4 @@
+import { isPlatform } from '@ionic/react';
 import React, { useContext } from 'react';
 import AuthenticatedApp from './components/AuthenticatedApp/AuthenticatedApp';
 import UnauthenticatedApp from './components/UnauthenticatedApp/UnauthenticatedApp';
@@ -24,7 +25,13 @@ import './theme/variables.css';
 
 export const App: React.FC = () => {
   const isAuthenticated = useContext(AuthContext);
-  return isAuthenticated ? <AuthenticatedApp /> : <UnauthenticatedApp />;
+  const isCapacitor = isPlatform('capacitor');
+
+  return isAuthenticated ? (
+    <AuthenticatedApp isCapacitor={isCapacitor} />
+  ) : (
+    <UnauthenticatedApp isCapacitor={isCapacitor} />
+  );
 };
 
 export default App;

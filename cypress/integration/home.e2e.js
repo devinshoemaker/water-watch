@@ -10,6 +10,11 @@ context('Home Page', () => {
     cy.clearFirebaseLocalStorage();
   });
 
+  it('should default path to home page', () => {
+    cy.visit('/');
+    cy.url().should('contain', '/home');
+  });
+
   it('should have title', () => {
     cy.get('ion-title').should('contain', 'Ionic Blank');
   });

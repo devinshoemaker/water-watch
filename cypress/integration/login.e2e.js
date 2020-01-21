@@ -10,6 +10,11 @@ context('Login Page', () => {
     cy.clearFirebaseLocalStorage();
   });
 
+  it('should default path to login page', () => {
+    cy.visit('/');
+    cy.url().should('contain', '/login');
+  });
+
   it('should have title', () => {
     cy.get('ion-title').should('contain', 'Login');
   });
