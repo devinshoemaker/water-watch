@@ -1,7 +1,23 @@
 {
   "name": "water-watch",
   "version": "0.0.1",
+  "description": "An app to help you keep track of your water intake",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "start:no-open": "BROWSER=none react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --watchAll=false --bail",
+    "test:watch": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll",
+    "cypress:run": "cypress run",
+    "cypress:open": "cypress open",
+    "e2e": "concurrently npm:start:no-open npm:cypress:run --kill-others --success first",
+    "e2e:watch": "concurrently npm:start:no-open npm:cypress:open --kill-others --success first",
+    "format": "prettier --config .prettierrc --write '{src,cypress}/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "format:check": "prettier --config .prettierrc --check '{src,cypress}/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@capacitor/android": "^1.4.0",
     "@capacitor/core": "^1.4.0",
@@ -25,31 +41,6 @@
     "react-scripts": "^3.3.0",
     "typescript": "3.6.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "start:no-open": "BROWSER=none react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false --bail",
-    "test:watch": "react-scripts test",
-    "test:coverage": "react-scripts test --coverage --watchAll",
-    "cypress:run": "cypress run",
-    "cypress:open": "cypress open",
-    "e2e": "concurrently npm:start:no-open npm:cypress:run --kill-others --success first",
-    "e2e:watch": "concurrently npm:start:no-open npm:cypress:open --kill-others --success first",
-    "format": "prettier --config .prettierrc --write '{src,cypress}/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
-    "format:check": "prettier --config .prettierrc --check '{src,cypress}/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-  "description": "An app to help you keep track of your water intake",
   "devDependencies": {
     "@capacitor/cli": "^1.4.0",
     "@testing-library/cypress": "^5.0.2",
@@ -61,6 +52,15 @@
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1"
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
