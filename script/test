@@ -14,8 +14,8 @@ ${DIR}/bootstrap
 
 echo "==> Running tests..."
 
-npm run build
-npm run test -- --watchAll=false --bail
-npm run e2e
+yarn build
+yarn test -- --watchAll=false --bail
+yarn e2e
 
 echo "==> Tests complete."

@@ -12,7 +12,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ${DIR}/bootstrap
 
 echo "==> Building project..."
-npm run build
+yarn build
 
 if [[ ! -d "android/capacitor-cordova-android-plugins" ]]; then
     echo "==> Updating Android dependencies..."

@@ -8,15 +8,15 @@ set -e
 
 echo "==> Bootstrapping application..."
 
-if ! command -v "npm" >/dev/null 2>&1; then
-    echo "==> NPM must be installed. Aborting."
+if ! command -v "yarn" >/dev/null 2>&1; then
+    echo "==> Yarn must be installed. Aborting."
     exit 1
 fi
 
 # Check if NPM dependencies have been installed
 if [[ ! -d "node_modules" ]]; then
-    echo "==> Installing NPM dependencies..."
-    npm install
+    echo "==> Installing Node.js dependencies..."
+    yarn
 fi
 
 echo "==> Application bootstrapped."

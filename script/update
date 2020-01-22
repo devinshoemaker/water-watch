@@ -10,7 +10,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 ${DIR}/bootstrap
 
-echo "==> Updating NPM dependencies..."
-npm update
+echo "==> Updating Node.js dependencies..."
+yarn upgrade-interactive --latest
 
 echo "echo ==> Dependency updates complete."

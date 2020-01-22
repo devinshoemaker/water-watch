@@ -13,7 +13,7 @@ ${DIR}/test
 
 echo "==> Building project..."
 
-npm run build
+yarn build
 
 if [[ ! -f ".firebaserc" ]]; then
     firebase use --add
