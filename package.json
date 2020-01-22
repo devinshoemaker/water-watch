@@ -27,14 +27,18 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:no-open": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false --bail",
+    "test:watch": "react-scripts test",
     "test:coverage": "react-scripts test --coverage --watchAll",
-    "eject": "react-scripts eject",
+    "cypress:run": "cypress run",
+    "cypress:open": "cypress open",
+    "e2e": "concurrently npm:start:no-open npm:cypress:run --kill-others --success first",
+    "e2e:watch": "concurrently npm:start:no-open npm:cypress:open --kill-others --success first",
     "format": "prettier --config .prettierrc --write '{src,cypress}/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "format:check": "prettier --config .prettierrc --check '{src,cypress}/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
-    "e2e": "concurrently \"cypress run\" --kill-others \"BROWSER=none react-scripts start\" --success first",
-    "e2e:watch": "concurrently \"cypress open\" --kill-others \"BROWSER=none react-scripts start\" --success first"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
