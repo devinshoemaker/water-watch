@@ -1368,27 +1368,27 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@ionic/core@4.11.8":
-  version "4.11.8"
-  resolved "https://registry.yarnpkg.com/@ionic/core/-/core-4.11.8.tgz#fbc905f6900133b55c3230c0397944ba40c61aeb"
-  integrity sha512-ygeoWAV1Y2Bi2lumiIHKbeYXMKx9I5sE8lyfvF0YReLwqQwK6xLCJFOo6c59AmGqmwiP6Ko+kqBUylfamtAHcg==
+"@ionic/core@4.11.10":
+  version "4.11.10"
+  resolved "https://registry.yarnpkg.com/@ionic/core/-/core-4.11.10.tgz#1aa5f2e31b8d0c741471af9c272964c34155ab5a"
+  integrity sha512-PeonKl5E+VOTBeKDr83y0N/1wbfkZ5jV3PSJTsVPE3Q15LxGEO0GzBvVMgkmkssuqOI3WJPXxYWZVL8ejzSFOQ==
   dependencies:
     ionicons "^4.6.3"
     tslib "^1.10.0"
 
-"@ionic/react-router@^4.11.7":
-  version "4.11.8"
-  resolved "https://registry.yarnpkg.com/@ionic/react-router/-/react-router-4.11.8.tgz#a5ed88789c39a510b447f636db0bf67b96ba5fee"
-  integrity sha512-iM6r4t8J6HqkSMRGu3+IJPMRYZ6up6beC73/HxqINtMF9BAJlzMCaonUFJXhmmT63KR1RCl9NTsYY4DGYRMorg==
+"@ionic/react-router@^4.11.10":
+  version "4.11.10"
+  resolved "https://registry.yarnpkg.com/@ionic/react-router/-/react-router-4.11.10.tgz#88a33d8fdb672b81bfc08b6d3e1337e3de3ce43c"
+  integrity sha512-Kxya6GBKmy42A5B1Mj2jD7by4xV/MyyQrsaqr4hgXzC2z27wjg4WzMKl1L0BnaAhZCxjMOLGShgflRA4DPpnqw==
   dependencies:
     tslib "*"
 
-"@ionic/react@^4.11.7":
-  version "4.11.8"
-  resolved "https://registry.yarnpkg.com/@ionic/react/-/react-4.11.8.tgz#fdc33dca383ef69a056e51a7b016bde30b339ef1"
-  integrity sha512-r+U9wtEX8ep2mXZimZhv8dmEBdNJru+bC3NTuhFn/BQqji8n6nVaF9XEd4YN60sIdc8ThxDQwY+yWOsRcPAiXg==
+"@ionic/react@^4.11.10":
+  version "4.11.10"
+  resolved "https://registry.yarnpkg.com/@ionic/react/-/react-4.11.10.tgz#33704093d8c2686e6c9a112eb29275109d5334da"
+  integrity sha512-EF9H0HDb3MO/E8R2sBACYweQG2OzsHZBdxCYEHTt0lnaOCS2ykB93FK8f0WllP19e5Bx7jembZC4UugwjAxnTQ==
   dependencies:
-    "@ionic/core" "4.11.8"
+    "@ionic/core" "4.11.10"
     tslib "*"
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
